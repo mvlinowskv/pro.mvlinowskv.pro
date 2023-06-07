@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="planets">
+        <div class="planets__c">
+
+            <h1 class="planets__h1">Kto najszybciej dostanie emeryturę?</h1>
+            <div class="planets__container">
+
+                {% for user in users %}
+                    <div class="planets__user">
+                        <p class="planets__h">
+                            {{ user.name }}
+                            <span class="planets__birthday"> <img
+                                        src="{{ asset('/images/birthday-cake-svgrepo-com.svg') }}" alt="urodziny"> {{ user.birthday }}</span>
+                        </p>
+
+                        <p class="planets__p planets__p--pension">
+                            Emerytura za <span class="planets__number">{{ user.pension }}</span> lat
+                        </p>
+
+                        <p class="planets__p">
+                            Wiek: <span class="planets__number">{{ user.old }}</span>
+                        </p>
+
+
+                    </div>
+
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </section>
+{% endblock %}
